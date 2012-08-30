@@ -6,4 +6,4 @@ coprime :: Int -> Int -> Bool
 coprime n m = 1 == myGCD n m
 
 totient :: Int -> Int
-totient n = foldl (flip ((+) . fromEnum)) 0 (map (coprime n) [1..n])
+totient n = sum $ map (fromEnum . coprime n) [1..n]
